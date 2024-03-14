@@ -7,7 +7,7 @@ class Piso:
         self.boton_abajo = False
         self.ascensor = ascensor
         self.tiempo_de_apertura_ascensor = 5
-
+    #en esta funcion es que si es arriba significa true el usuario sube  y si arriba es false es que el usuario quiere bajar
     def llamar_ascensor(self, arriba):
         if arriba:
             self.boton_arriba = True
@@ -25,7 +25,7 @@ class Piso:
         time.sleep(2)
         self.ascensor.abierto = False
         print("<<<<<< CERRAR ASCENSOR  >>>>>>")
-
+    # Es una funcion donde numero de piso guarda el numero de piso y encendido que indica si el botón está encendido o apagado por defecto esta apgado
 class BotonDePiso:
     def __init__(self, numero_de_piso):
         self.numero_de_piso = numero_de_piso
