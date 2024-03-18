@@ -2,10 +2,10 @@ from sistema.configuracionEdificio import Configuracion
 
 
 class Edificio:
-
     def __init__(self, pisos, ascensores):
         self.pisos = pisos
         self.ascensores = ascensores
+
 
 edificio_torre = Configuracion(20, 3)
 edificio_torre.pisos[0].llamar_ascensor(arriba=True)

@@ -1,5 +1,6 @@
 import time
 
+
 class Piso:
     def __init__(self, numero_piso, ascensor):
         self.numero_piso = numero_piso
@@ -8,8 +9,6 @@ class Piso:
         self.ascensor = ascensor
         self.tiempo_de_apertura_ascensor = 5
 
-    """ En esta funcion hace que si el ascensor va arriba significa true,
-           y si el usuario quiere bajar es false """
     def llamar_ascensor(self, arriba):
         if arriba:
             self.boton_arriba = True
@@ -27,7 +26,3 @@ class Piso:
         time.sleep(2)
         self.ascensor.abrir = False
         print("<<<<<< CERRAR ASCENSOR  >>>>>>")
-
-
-
-
