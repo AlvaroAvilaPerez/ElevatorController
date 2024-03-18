@@ -10,6 +10,8 @@ class Piso:
         self.tiempo_de_apertura_ascensor = 5
 
     def llamar_ascensor(self, arriba):
+        """ En esta funcion hace que si el ascensor que va arriba significa true,
+                      y si el usuario quiere bajar es false """
         if arriba:
             self.boton_arriba = True
             self.abrir_ascensor()
@@ -21,6 +23,8 @@ class Piso:
             self.boton_abajo = False
 
     def abrir_ascensor(self):
+        """ Este Metodo control si el ascensor está abierto o cerrado."""
+
         print("<<<<<< ABRIR ASCENSOR >>>>>>")
         self.ascensor.abrir = True
         time.sleep(2)

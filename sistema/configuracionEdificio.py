@@ -4,7 +4,10 @@ from sistema.botonDePiso import BotonDePiso
 
 
 class Configuracion():
+    """Esta clse se utiliza para crear y configurar ascensores y pisos,y
+        para encontrar el ascensor más cercano a un piso específico dentro de la configuración """
     def __init__(self, numero_de_piso, numero_de_ascensores):
+        """Este metodo constructor crea aascensores donde cada ascensor tiene sus botones de piso"""
         self.numero_de_piso = numero_de_piso
         self.numero_de_ascensores = numero_de_ascensores
         self.ascensores = [Ascensor([BotonDePiso(i) for i in range(numero_de_piso + 1)]) for _ in range(numero_de_ascensores + 1)]
