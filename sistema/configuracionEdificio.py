@@ -1,27 +1,30 @@
-from sistema.pisos import Piso
-from sistema.ascensor import Ascensor
-from sistema.botonDePiso import BotonDePiso
+from pisos import Floor
+from ascensor import Elevator
+from botonDePiso import FloorButton
 
 
-class Configuracion():
-    def __init__(self, numero_de_piso, numero_de_ascensores):
-        self.numero_de_piso = numero_de_piso
-        self.numero_de_ascensores = numero_de_ascensores
-        self.ascensores = [Ascensor([BotonDePiso(i) for i in range(numero_de_piso + 1)]) for _ in range(numero_de_ascensores + 1)]
-        self.pisos = [Piso(i, self.ascensores[0]) for i in range(numero_de_piso + 1)]
-        for i, ascensor in enumerate(self.ascensores):
+class Setting():
+    """enumera y nos lista la cantidad e ascensores
+              el +1 hace que me cuete des el numero 1 de ascensores y no el 0"""
+    def __init__(self, floor_number, number_of_elevators):
+        self.floor_number = floor_number
+        self.number_of_elevators = number_of_elevators
+        self.elevators = [Elevator([FloorButton(i) for i in range(floor_number + 1)]) for _ in range(number_of_elevators + 1)]
+        self.floors = [Floor(i, self.elevators[0]) for i in range(floor_number + 1)]
+        for i, elevator in enumerate(self.elevators):
             print(f'Ascensor {i}')
 
-    def get_ascensor_mas_cercano(self, numero_piso):
-        ascensor_mas_cercano = None
-        diferencia_de_pisos_real = len(self.ascensores[0].botones_de_piso)
-        for ascensor in self.ascensores:
-            diferencia_de_pisos = abs(ascensor.piso_actual - numero_piso)
-            if diferencia_de_pisos < diferencia_de_pisos_real:
-                diferencia_de_pisos_real = diferencia_de_pisos
-                ascensor_mas_cercano = ascensor
+    """Este método recorre todos los ascensores en la lista y determina cuál está más cerca del piso deseado"""
+    def get_closest_elevator(self, floor_number):
+        nearest_elevator = None
+        difference_of_real_floors = len(self.elevators[0].floor_buttons)
+        for elevator in self.elevators:
+            floor_difference = abs(elevator.current_floor - floor_number)
+            if floor_difference < difference_of_real_floors:
+                difference_of_real_floors = floor_difference
+                nearest_elevator = elevator
 
-        if ascensor_mas_cercano:
+        if nearest_elevator:
             print(
-                f"El ascensor más cercano al piso {numero_piso} es el ascensor en el piso {ascensor_mas_cercano.piso_actual}.")
-        return ascensor_mas_cercano
+                f"The elevator closest to the floor {floor_number} is the elevator on the floor {nearest_elevator.current_floor}.")
+        return nearest_elevator

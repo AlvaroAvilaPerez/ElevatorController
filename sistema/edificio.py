@@ -1,15 +1,16 @@
-from sistema.configuracionEdificio import Configuracion
+from configuracionEdificio import Setting
 
 
-class Edificio:
-    def __init__(self, pisos, ascensores):
-        self.pisos = pisos
-        self.ascensores = ascensores
+class Building:
+    """Este constructor inicializa una instancia de la clase con información sobre los pisos y los ascensores"""
+    def __init__(self, floors, elevators):
+        self.floors = floors
+        self.elevators = elevators
 
 
-edificio_torre = Configuracion(20, 3)
-edificio_torre.pisos[0].llamar_ascensor(arriba=True)
-edificio_torre.ascensores[0].ir_al_piso(15)
-edificio_torre.ascensores[2].ir_al_piso(2)
-edificio_torre.ascensores[3].ir_al_piso(1)
-ascensor_cercano = edificio_torre.get_ascensor_mas_cercano(5)
+tower_building = Setting(20, 3)
+tower_building.floors[0].call_elevator(above=True)
+tower_building.elevators[0].go_to_floor(30)
+tower_building.elevators[2].go_to_floor(2)
+tower_building.elevators[3].go_to_floor(7)
+elevator_nearby = tower_building.get_closest_elevator(5)

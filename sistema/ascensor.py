@@ -1,33 +1,56 @@
+import time
+class Elevator:
+    """
+       Inicializa una nueva instancia de la clase Elevador.
 
-class Ascensor:
-    def __init__(self, botones_de_piso):
-        self.botones_de_piso = botones_de_piso
-        self.piso = 0
-        self.piso_actual = 0
-        self.abierto = False
+       :parametro floor_buttons: es una lista de botones para cada piso, indicando si el botón está presionado o no.
+       : self.floor = 0, piso actual del elevador
+       : self.current_floor = 0, El piso en el que se encuentra actualmente el elevador
+       : self.open = False, Indica si las puertas del elevador están abiertas o cerradas
+       """
+    def __init__(self, floor_buttons):
+        self.floor_buttons = floor_buttons
+        self.floor = 0
+        self.current_floor = 0
+        self.open = False
 
-    def ir_al_piso(self, numero_de_piso):
-        if numero_de_piso > len(self.botones_de_piso):
-            print(f'Error!!! Este piso  {numero_de_piso} no existe en el edificio torre.')
+    """
+    Mueve el ascensor al piso especificado.
+    :floor_number: El número del piso al que se desea ir.
+    """
+    def go_to_floor(self, floor_number):
+        if floor_number > len(self.floor_buttons):
+            print(f'Mistake!!! This floor  {floor_number} It does not exist in the tower building.')
             return
-        botones = list(filter(lambda button: button.numero_de_piso == numero_de_piso, self.botones_de_piso))
+        buttons = list(filter(lambda button: button.floor_number == floor_number, self.floor_buttons))
         print('----------------')
-        boton_presionado = botones[0]
-        print(f'--Yendo al Piso: {boton_presionado.numero_de_piso}')
-        print(f'Piso Actual: {self.piso_actual}')
-        while self.piso_actual != numero_de_piso:
-            if self.piso_actual < numero_de_piso:
-                self.subir_piso()
+        button_pressed = buttons[0]
+        print(f'--Going to the Floor: {button_pressed.floor_number}')
+        print(f'Current Floor: {self.current_floor}')
+        while self.current_floor != floor_number:
+            if self.current_floor < floor_number:
+                self.go_up_floor()
             else:
-                self.bajar_piso()
-            print("Piso : " + str(self.piso_actual))
+                self.lower_floor()
+            print("floor : " + str(self.current_floor))
             print('----------------')
         else:
-            print(f'LLegaste al piso !!{numero_de_piso} ')
+            print(f'Reached the floor !!{floor_number} ')
+            self.open_elevator()
             print('----------------')
 
-    def subir_piso(self):
-        self.piso_actual = self.piso_actual + 1
+    """Esta esta funcion  actualiza el valor del piso_actual y suma 1 al valor"""
+    def go_up_floor(self):
+        self.current_floor = self.current_floor + 1
+        print(self.current_floor)
 
-    def bajar_piso(self):
-        self.piso_actual = self.piso_actual - 1
+    """Esta esta funcion  actualiza el valor del piso_actual y Resta 1 al valor"""
+    def lower_floor(self):
+        self.current_floor = self.current_floor - 1
+
+    """este método simula el proceso de abrir y cerrarlas puertas del ascensor.
+        Primero se establece el estado de las puertas como abiertas, espera un tiempo y luego se cierra"""
+    def open_elevator(self):
+        print("<<<<<< OPEN ELEVATOR >>>>>>")
+        time.sleep(2)
+        print("<<<<<< CLOSE ELEVATOR >>>>>>")
