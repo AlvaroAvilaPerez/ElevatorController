@@ -8,7 +8,7 @@ class Tower:
         self.elevators = elevator
 
 
-tower_building = Setting(20, 3)
+tower_building = Setting(20, 2)
 tower_building.floors[0].call_elevator(up=True)
 tower_building.elevators[0].go_to_floor(15)
 tower_building.elevators[0].go_to_floor(5)

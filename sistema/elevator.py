@@ -21,8 +21,8 @@ class Elevator:
             return
         buttons = list(filter(lambda button: button.floor_number == floor_number, self.floor_buttons))
         print('----------------')
-        button_prressed = buttons[0]
-        print(f'--Going to the Floor: {button_prressed.floor_number}')
+        button_pressed = buttons[0]
+        print(f'--Going to the Floor: {button_pressed.floor_number}')
         print(f'Current Floor: {self.current_floor}')
         while self.current_floor != floor_number:
             if self.current_floor < floor_number:
@@ -32,7 +32,7 @@ class Elevator:
             print("Floor : " + str(self.current_floor))
             print('----------------')
         else:
-            print(f'LLegaste al piso !!{floor_number} ')
+            print(f'Go floor!!{floor_number} ')
             self.open_elevator()
             print('----------------')
 

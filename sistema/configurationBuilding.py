@@ -15,9 +15,9 @@ class Setting:
         for i, elevator in enumerate(self.elevators):
             print(f'Elevator {i}')
 
-    def get_elevator_plus_nearby(self, floor_number):
-        """Este método maneja un sistema de elevadores el propósito de este método es encontrar
-            el ascensor más cercano a un determinado número de piso
+    def get_elevator_plus_nearby(self, floor_number: str):
+        """This method manages an elevator system the purpose of this method is to find
+             the closest elevator to a certain floor number
             a -- floor_number  This is the floor number for which we want to find the nearest elevator."""
         elevator_plus_nearby = None
         floor_difference_real = len(self.elevators[0].floor_buttons)
@@ -30,4 +30,6 @@ class Setting:
         if elevator_plus_nearby:
             print(
                 f"The elevator closest to the floor{floor_number} It's the elevator on the floor{elevator_plus_nearby.current_floor}.")
+        print('*')
+        print(elevator_plus_nearby.current_floor)
         return elevator_plus_nearby
