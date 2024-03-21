@@ -1,1 +1,0 @@
-from sistema.elevator import go_to_floor

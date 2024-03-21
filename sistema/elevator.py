@@ -1,24 +1,23 @@
 import time
 class Elevator:
     """
-       Inicializa una nueva instancia de la clase Elevador.
-
-       :parametro floor_buttons: es una lista de botones para cada piso, indicando si el botón está presionado o no.
-       : self.floor = 0, piso actual del elevador
-       : self.current_floor = 0, El piso en el que se encuentra actualmente el elevador
-       : self.open = False, Indica si las puertas del elevador están abiertas o cerradas
-       """
-    def __init__(self, floor_buttons):
+     Initializes a new instance of the Elevator class.
+        :parameter floor_buttons: is a list of buttons for each floor, indicating whether the button is pressed or not.
+        : self.floor = 0, current elevator floor
+        : self.current_floor = 0, The floor the elevator is currently on
+        : self.open = False, Indicates whether the elevator doors are open or closed
+     """
+    def __init__(self, floor_buttons: list):
         self.floor_buttons = floor_buttons
         self.floor = 0
         self.current_floor = 0
         self.open = False
 
     """
-    Mueve el ascensor al piso especificado.
-    :floor_number: El número del piso al que se desea ir.
-    """
-    def go_to_floor(self, floor_number):
+     Move the elevator to the specified floor.
+     :floor_number: The number of the floor you want to go to.
+     """
+    def go_to_floor(self, floor_number: int):
         if floor_number > len(self.floor_buttons):
             print(f'Mistake!!! This floor  {floor_number} It does not exist in the tower building.')
             return
@@ -39,17 +38,21 @@ class Elevator:
             self.open_elevator()
             print('----------------')
 
-    """Esta esta funcion  actualiza el valor del piso_actual y suma 1 al valor"""
+    """ This function updates the current_floor value by incrementing it by 1.
+                 Increments the value of current_floor by 1 to indicate that the elevator is moving up
+                 in the building."""
     def go_up_floor(self):
         self.current_floor = self.current_floor + 1
         print(self.current_floor)
 
-    """Esta esta funcion  actualiza el valor del piso_actual y Resta 1 al valor"""
+    """ This function updates the current_floor value by decrementing it by 1.
+                 Decrements the value of current_floor by 1 to indicate that the elevator is moving down
+                 in the building"""
     def lower_floor(self):
         self.current_floor = self.current_floor - 1
 
-    """este método simula el proceso de abrir y cerrarlas puertas del ascensor.
-        Primero se establece el estado de las puertas como abiertas, espera un tiempo y luego se cierra"""
+    """This method simulates the process of opening and closing elevator doors.
+             First the status of the doors is set to open, wait a while and then close"""
     def open_elevator(self):
         print("<<<<<< OPEN ELEVATOR >>>>>>")
         time.sleep(2)

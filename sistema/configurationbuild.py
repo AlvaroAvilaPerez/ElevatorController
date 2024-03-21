@@ -1,12 +1,13 @@
-from pisos import Floor
-from ascensor import Elevator
-from botonDePiso import FloorButton
-
+from floors import Floor
+from elevator import Elevator
+from floorbutton import FloorButton
 
 class Setting():
-    """enumera y nos lista la cantidad e ascensores
-              el +1 hace que me cuete des el numero 1 de ascensores y no el 0"""
-    def __init__(self, floor_number, number_of_elevators):
+    """ This method lists and creates the specified number of elevators.
+             :floor_number: The total number of floors in the building
+             :number_of_elevators: The total number of elevators to be created.
+             """
+    def __init__(self, floor_number: int, number_of_elevators: list):
         self.floor_number = floor_number
         self.number_of_elevators = number_of_elevators
         self.elevators = [Elevator([FloorButton(i) for i in range(floor_number + 1)]) for _ in range(number_of_elevators + 1)]
@@ -14,8 +15,12 @@ class Setting():
         for i, elevator in enumerate(self.elevators):
             print(f'Ascensor {i}')
 
-    """Este método recorre todos los ascensores en la lista y determina cuál está más cerca del piso deseado"""
-    def get_closest_elevator(self, floor_number):
+    """ Find the elevator closest to the desired floor.
+             This method loops through all the elevators in the list and determines which one is closest to the desired floor.
+             floor_number: The number of the desired floor.
+             :The elevator object closest to the desired floor, or None if no elevators are available.
+         """
+    def get_closest_elevator(self, floor_number: int):
         nearest_elevator = None
         difference_of_real_floors = len(self.elevators[0].floor_buttons)
         for elevator in self.elevators:

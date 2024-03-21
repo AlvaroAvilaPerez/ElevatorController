@@ -1,8 +1,7 @@
-from configuracionEdificio import Setting
-
+from configurationbuild import Setting
 
 class Building:
-    """Este constructor inicializa una instancia de la clase con información sobre los pisos y los ascensores"""
+    """This constructor initializes an instance of the class with information about the floors and elevators"""
     def __init__(self, floors, elevators):
         self.floors = floors
         self.elevators = elevators
