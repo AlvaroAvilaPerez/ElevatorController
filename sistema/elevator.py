@@ -3,7 +3,7 @@ import time
 
 class Elevator:
 
-    def __init__(self, floor_buttons):
+    def __init__(self, floor_buttons: list):
         """This Constructor Method initializes with specific values for the attributes
                  floor_buttons, floor, current_floor and open
             a -- Floor_buttons: is a parameter passed to the constructor to initialize the attribute"""
@@ -12,13 +12,9 @@ class Elevator:
         self.current_floor = 0
         self.open = False
 
-    def go_to_floor(self, floor_number):
+    def go_to_floor(self, floor_number: int):
         """This method makes the elevator go to the defined floor"
                  a -- floor_number: which represents the number of the floor to which you want to go """
-
-        if floor_number > len(self.floor_buttons):
-            print(f'Error!!! This floor  {floor_number} It does not exist in the tower building.')
-            return
         buttons = list(filter(lambda button: button.floor_number == floor_number, self.floor_buttons))
         print('----------------')
         button_pressed = buttons[0]
@@ -35,6 +31,10 @@ class Elevator:
             print(f'Go floor!!{floor_number} ')
             self.open_elevator()
             print('----------------')
+
+        if floor_number > len(self.floor_buttons):
+            print(f'Error!!! This floor  {floor_number} It does not exist in the tower building.')
+            return
 
     def gou_up_floor(self):
         """ This this function updates the value of the current_floor and adds 1 to the value """

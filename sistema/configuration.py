@@ -1,6 +1,7 @@
 from sistema.floor import Floor
 from sistema.elevator import Elevator
 from sistema.floorButton import FloorButton
+from sistema.tower import Tower
 
 
 class Setting:
@@ -10,7 +11,11 @@ class Setting:
         """This builder method creates elevators where each elevator has its floor buttons"""
         self.floor_number = floor_number
         self.number_of_elevators = number_of_elevators
-        self.elevators = [Elevator([FloorButton(i) for i in range(floor_number + 1)]) for _ in range(number_of_elevators + 1)]
+        self.elevators = []
+        for _ in range(number_of_elevators + 1):
+            floor_buttons = [FloorButton(i) for i in range(floor_number + 1)]
+            elevator = Elevator(floor_buttons)
+            self.elevators.append(elevator)
         self.floors = [Floor(i, self.elevators[0]) for i in range(floor_number + 1)]
         for i, elevator in enumerate(self.elevators):
             print(f'Elevator {i}')
@@ -29,7 +34,7 @@ class Setting:
 
         if elevator_plus_nearby:
             print(
-                f"The elevator closest to the floor{floor_number} It's the elevator on the floor{elevator_plus_nearby.current_floor}.")
-        print('*')
+                f"The elevator closest to the floor {floor_number} It's the elevator on the floor {elevator_plus_nearby.current_floor}.")
+
         print(elevator_plus_nearby.current_floor)
         return elevator_plus_nearby
