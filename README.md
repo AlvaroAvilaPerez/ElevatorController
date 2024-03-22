@@ -8,5 +8,7 @@
 * Install python
 * Run System:
    * run main.py
+* Install pytest:
+   * pip install pytest
 * Run Pytest:
    * Pytest
