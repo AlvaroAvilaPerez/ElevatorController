@@ -7,6 +7,6 @@
 * Clone repository
 * Install python
 * Run System:
- * run main.py
-*Run Pytest:
-  * Pytest
+   * run main.py
+* Run Pytest:
+   * Pytest
