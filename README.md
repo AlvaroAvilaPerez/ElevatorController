@@ -1,7 +1,7 @@
-##  CAPTIVA training  
+##  CAPTIVA TRAINING
 **Introduction:**
 
-** The Captiva training, creates an elevator control system, where you get the floor, current floor, elevators, and the nearest elevator.
+* The Captiva training, creates an elevator control system, where you get the floor, current floor, elevators, and the nearest elevator.
 
 ### Prerequisites
 * Clone repository
