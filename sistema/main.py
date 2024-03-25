@@ -1,4 +1,4 @@
-from configurationbuild import Setting
+from setting import Setting
 
 tower_building = Setting(20, 3)
 tower_building.floors[0].call_elevator(above=True)

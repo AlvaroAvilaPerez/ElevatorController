@@ -1,5 +1,5 @@
-from elevator import Elevator
-from floorbutton import FloorButton
+from sistema.elevator import Elevator
+from sistema.floorbutton import FloorButton
 
 
 def test_go_up_floor():

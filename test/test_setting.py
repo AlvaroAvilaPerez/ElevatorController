@@ -1,6 +1,7 @@
-from elevator import Elevator
-from configurationbuild import Setting
-from floorbutton import FloorButton
+from sistema.elevator import Elevator
+from sistema.setting import Setting
+from sistema.floorbutton import FloorButton
+
 
 def test_get_elevator_plus_nearby():
     floor_number = 10
