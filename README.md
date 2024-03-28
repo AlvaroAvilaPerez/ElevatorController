@@ -1,7 +1,7 @@
-##  CAPTIVA TRAINING
+##  CAPTIVA TRAINING PYTHON 
 **Introduction:**
 
-* The Captiva academy training, create an elevator control system, where get the floor, current floor, elevators, and the nearest elevator.
+* The Captiva academy training, create an elevator control system, where you get the floor, current floor, elevators, and the nearest elevator. Where a "test" directory was created where unit tests were performed
 
 ### Prerequisites
 * Clone repository
@@ -12,3 +12,5 @@
    * pip install pytest
 * Run Pytest:
    * Pytest
+* Install  requirements
+   *  pip freeze > requirements.txt  
