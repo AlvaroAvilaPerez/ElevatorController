@@ -3,7 +3,9 @@ import time
 
 class Elevator:
     def __init__(self, floor_buttons: list):
-        """ The constructor initializes an instance of the class representing an elevator
+        """ The constructor initializes an instance of the Elevator class with the specified list of floor buttons.
+            Sets the current floor and the floor the elevator is on to 0 by default.
+            Set the door status to closed by default.
 
             Keyword arguments:
             floor_buttons (list) -- A list of floor buttons available in the elevator
@@ -17,7 +19,9 @@ class Elevator:
         self.open = False
 
     def go_to_floor(self, floor_number: int):
-        """ Method of moving the elevator to a specific floor.
+        """ This method verify if the specified floor exists in the elevator button list.
+            If the floor does not exist, print an error message.
+            If the floor exists, move the elevator to that floor, printing the details of the move
 
             Keyword arguments:
             floor_number (int) -- The floor number to which you want to move the elevator

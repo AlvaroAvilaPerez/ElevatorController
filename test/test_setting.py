@@ -1,6 +1,6 @@
-from sistema.elevator import Elevator
-from sistema.setting import Setting
-from sistema.floorbutton import FloorButton
+from System.elevator import Elevator
+from System.setting import Setting
+from System.floorbutton import FloorButton
 
 
 def test_get_elevator_plus_nearby():

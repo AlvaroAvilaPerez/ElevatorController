@@ -1,6 +1,6 @@
-from sistema.floors import Floor
-from sistema.elevator import Elevator
-from sistema.floorbutton import FloorButton
+from floors import Floor
+from elevator import Elevator
+from floorbutton import FloorButton
 
 
 class Setting:
@@ -14,11 +14,10 @@ class Setting:
         """
         self.floor_number = floor_numbers
         self.number_of_elevators = number_of_elevators
-        self.elevators = [Elevator([FloorButton(i) for i in range(floor_numbers + 1)]) for _ in
-                          range(number_of_elevators + 1)]
+        self.elevators = [Elevator([FloorButton(i) for i in range(floor_numbers + 1)]) for _ in range(number_of_elevators + 1)]
         self.floors = [Floor(i, self.elevators[0]) for i in range(floor_numbers + 1)]
         for i, elevator in enumerate(self.elevators):
-            print(f'Ascensor {i}')
+            print(f'Elevator {i}')
 
     def get_closest_elevator(self, floor_number: int):
         """ This method, get_closest_elevator, has the function of finding the elevator closest to the floor you want
